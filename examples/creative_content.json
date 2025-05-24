@@ -1,0 +1,80 @@
+{
+  "description": "Ejemplos de contenido creativo usando Gemini AI",
+  "examples": [
+    {
+      "name": "Historia de Ciencia Ficción",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "tools/call",
+        "params": {
+          "name": "ask_gemini",
+          "arguments": {
+            "prompt": "Escribe una historia corta sobre un programador que descubre que cada bug que arregla en el código también arregla algo en el mundo real",
+            "temperature": 0.9
+          }
+        }
+      }
+    },
+    {
+      "name": "Poema Técnico",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 2,
+        "method": "tools/call",
+        "params": {
+          "name": "ask_gemini",
+          "arguments": {
+            "prompt": "Crea un poema sobre la belleza de los algoritmos y la elegancia del código limpio",
+            "temperature": 0.8
+          }
+        }
+      }
+    },
+    {
+      "name": "Email Profesional",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 3,
+        "method": "tools/call",
+        "params": {
+          "name": "ask_gemini",
+          "arguments": {
+            "prompt": "Redacta un email profesional para informar a mi equipo sobre el retraso en el proyecto debido a problemas técnicos, manteniendo un tono positivo y proponiendo soluciones",
+            "temperature": 0.5
+          }
+        }
+      }
+    },
+    {
+      "name": "Artículo Técnico",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 4,
+        "method": "tools/call",
+        "params": {
+          "name": "ask_gemini",
+          "arguments": {
+            "prompt": "Escribe un artículo breve sobre las mejores prácticas para el desarrollo de APIs RESTful, incluyendo ejemplos prácticos",
+            "temperature": 0.6
+          }
+        }
+      }
+    },
+    {
+      "name": "Naming Creativo",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 5,
+        "method": "tools/call",
+        "params": {
+          "name": "ask_gemini",
+          "arguments": {
+            "prompt": "Genera 10 nombres creativos para una startup de tecnología enfocada en inteligencia artificial para el sector educativo",
+            "temperature": 0.9
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+    "examples": {
+      "basic_query": {
+        "endpoint": "/ask-gemini",
+        "method": "POST",
+        "description": "Consulta general básica",
+        "request": {
+          "prompt": "¿Cuáles son las mejores prácticas para el desarrollo de APIs RESTful?",
+          "temperature": 0.7,
+          "system_role": "Eres un arquitecto de software senior con 10 años de experiencia"
+        },
+        "expected_response": {
+          "response": "Las mejores prácticas para APIs RESTful incluyen...",
+          "model_used": "gemini-1.5-flash",
+          "tokens_used": 245,
+          "process_time": "1.2s"
+        }
+      },
+      
+      "code_review": {
+        "endpoint": "/analyze-code",
+        "method": "POST",
+        "description": "Revisión de código Python",
+        "request": {
+          "prompt": "def calculate_fibonacci(n):\n    if n <= 1:\n        return n\n    else:\n        return calculate_fibonacci(n-1) + calculate_fibonacci(n-2)",
+          "language": "python",
+          "task": "review",
+          "code_context": "Función para calcular números de Fibonacci",
+          "temperature": 0.3
+        },
+        "expected_response": {
+          "response": "Esta función implementa el cálculo de Fibonacci usando recursión simple. Análisis:\n\n**Problemas identificados:**\n1. Complejidad exponencial O(2^n)\n2. Recalculo repetitivo de valores...",
+          "metadata": {
+            "task": "review",
+            "language": "python"
+          },
+          "model_used": "gemini-1.5-flash",
+          "tokens_used": 180,
+          "process_time": "0.8s"
+        }
+      },
+      
+      "code_optimization": {
+        "endpoint": "/analyze-code",
+        "method": "POST",
+        "description": "Optimización de código JavaScript",
+        "request": {
+          "prompt": "function findDuplicates(arr) {\n  let duplicates = [];\n  for(let i = 0; i < arr.length; i++) {\n    for(let j = i + 1; j < arr.length; j++) {\n      if(arr[i] === arr[j] && !duplicates.includes(arr[i])) {\n        duplicates.push(arr[i]);\n      }\n    }\n  }\n  return duplicates;\n}",
+          "language": "javascript",
+          "task": "optimize",
+          "code_context": "Función para encontrar elementos duplicados en un array"
+        },
+        "expected_response": {
+          "response": "Aquí está la versión optimizada de tu función...",
+          "metadata": {
+            "task": "optimize",
+            "language": "javascript"
+          }
+        }
+      },
+      
+      "creative_story": {
+        "endpoint": "/create-content",
+        "method": "POST",
+        "description": "Generación de historia corta",
+        "request": {
+          "prompt": "Un programador descubre que cada bug que arregla en el código también arregla algo en el mundo real",
+          "content_type": "story",
+          "style": "realismo mágico",
+          "length": "medium",
+          "temperature": 0.9
+        },
+        "expected_response": {
+          "response": "El Depurador de Realidades\n\nMarcos siempre había sido meticuloso con su código...",
+          "metadata": {
+            "content_type": "story",
+            "style": "realismo mágico",
+            "length": "medium"
+          }
+        }
+      },
+      
+      "technical_poem": {
+        "endpoint": "/create-content",
+        "method": "POST",
+        "description": "Poema técnico sobre programación",
+        "request": {
+          "prompt": "La belleza de los algoritmos y la elegancia del código limpio",
+          "content_type": "poem",
+          "style": "moderno y técnico",
+          "length": "short",
+          "temperature": 0.8
+        }
+      },
+      
+      "professional_email": {
+        "endpoint": "/create-content",
+        "method": "POST",
+        "description": "Email profesional",
+        "request": {
+          "prompt": "Necesito informar a mi equipo sobre el retraso en el proyecto debido a problemas técnicos inesperados, pero manteniendo un tono positivo y proponiendo soluciones",
+          "content_type": "email",
+          "style": "profesional y constructivo",
+          "length": "medium",
+          "temperature": 0.5
+        }
+      },
+      
+      "debug_analysis": {
+        "endpoint": "/analyze-code",
+        "method": "POST",
+        "description": "Análisis de debugging",
+        "request": {
+          "prompt": "public class Calculator {\n    public int divide(int a, int b) {\n        return a / b;\n    }\n    \n    public static void main(String[] args) {\n        Calculator calc = new Calculator();\n        System.out.println(calc.divide(10, 0));\n    }\n}",
+          "language": "java",
+          "task": "debug",
+          "code_context": "Aplicación simple de calculadora que falla en ejecución"
+        },
+        "expected_response": {
+          "response": "He identificado el problema principal en tu código:\n\n**Error crítico:** División por cero...",
+          "metadata": {
+            "task": "debug",
+            "language": "java"
+          }
+        }
+      },
+      
+      "complex_technical_query": {
+        "endpoint": "/ask-gemini",
+        "method": "POST",
+        "description": "Consulta técnica compleja",
+        "request": {
+          "prompt": "Explica las diferencias entre microservicios y arquitectura monolítica, cuándo usar cada una, y cómo migrar de monolito a microservicios de manera segura",
+          "temperature": 0.6,
+          "max_tokens": 3000,
+          "system_role": "Eres un arquitecto de software especializado en sistemas distribuidos"
+        }
+      },
+      
+      "health_check": {
+        "endpoint": "/health",
+        "method": "GET",
+        "description": "Verificación del estado del servidor",
+        "request": {},
+        "expected_response": {
+          "status": "healthy",
+          "timestamp": "2024-01-15T10:30:00Z",
+          "model": "gemini-1.5-flash",
+          "version": "2.0.0"
+        }
+      },
+      
+      "models_info": {
+        "endpoint": "/models",
+        "method": "GET",
+        "description": "Información sobre modelos disponibles",
+        "request": {},
+        "expected_response": {
+          "current_model": "gemini-1.5-flash",
+          "available_models": ["gemini-1.5-flash", "gemini-1.5-pro", "gemini-2.0-flash-exp"],
+          "capabilities": {
+            "text_generation": true,
+            "code_analysis": true,
+            "creative_writing": true,
+            "multilingual": true,
+            "reasoning": true
+          }
+        }
+      }
+    },
+    
+    "curl_examples": {
+      "basic_query": "curl -X POST http://localhost:3000/ask-gemini -H 'Content-Type: application/json' -d '{\"prompt\": \"¿Cómo implementar autenticación JWT?\", \"temperature\": 0.7}'",
+      
+      "code_review": "curl -X POST http://localhost:3000/analyze-code -H 'Content-Type: application/json' -d '{\"prompt\": \"const users = data.filter(user => user.active === true);\", \"language\": \"javascript\", \"task\": \"review\"}'",
+      
+      "creative_content": "curl -X POST http://localhost:3000/create-content -H 'Content-Type: application/json' -d '{\"prompt\": \"Una historia sobre IA\", \"content_type\": \"story\", \"length\": \"short\"}'",
+      
+      "health_check": "curl -X GET http://localhost:3000/health",
+      
+      "models_info": "curl -X GET http://localhost:3000/models"
+    },
+    
+    "parameter_explanations": {
+      "temperature": {
+        "description": "Controla la aleatoriedad de las respuestas",
+        "range": "0.0 - 1.0",
+        "recommendations": {
+          "0.1-0.3": "Para análisis técnico y respuestas precisas",
+          "0.4-0.7": "Para uso general balanceado",
+          "0.8-1.0": "Para contenido creativo y exploración"
+        }
+      },
+      
+      "max_tokens": {
+        "description": "Límite máximo de tokens en la respuesta",
+        "range": "1 - 8192",
+        "recommendations": {
+          "512-1024": "Respuestas concisas",
+          "1024-2048": "Respuestas detalladas",
+          "2048+": "Análisis extensos o contenido largo"
+        }
+      },
+      
+      "system_role": {
+        "description": "Define el rol o perspectiva del asistente",
+        "examples": [
+          "Eres un desarrollador senior con experiencia en React",
+          "Actúa como un profesor de ciencias de la computación",
+          "Eres un consultor de arquitectura de software",
+          "Responde como un experto en ciberseguridad"
+        ]
+      }
+    }
+  }

@@ -1,0 +1,69 @@
+{
+  "description": "Ejemplos de análisis de código con diferentes lenguajes y tareas",
+  "examples": [
+    {
+      "name": "Python Code Review",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "tools/call",
+        "params": {
+          "name": "analyze_code",
+          "arguments": {
+            "code": "def fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)",
+            "language": "python",
+            "task": "review"
+          }
+        }
+      }
+    },
+    {
+      "name": "JavaScript Optimization",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 2,
+        "method": "tools/call",
+        "params": {
+          "name": "analyze_code",
+          "arguments": {
+            "code": "function findMax(arr) {\n  let max = arr[0];\n  for(let i = 1; i < arr.length; i++) {\n    if(arr[i] > max) {\n      max = arr[i];\n    }\n  }\n  return max;\n}",
+            "language": "javascript",
+            "task": "optimize"
+          }
+        }
+      }
+    },
+    {
+      "name": "Go Debug Analysis",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 3,
+        "method": "tools/call",
+        "params": {
+          "name": "analyze_code",
+          "arguments": {
+            "code": "package main\n\nimport \"fmt\"\n\nfunc main() {\n    var numbers []int\n    fmt.Println(numbers[0])\n}",
+            "language": "go",
+            "task": "debug"
+          }
+        }
+      }
+    },
+    {
+      "name": "SQL Explanation",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 4,
+        "method": "tools/call",
+        "params": {
+          "name": "analyze_code",
+          "arguments": {
+            "code": "SELECT u.name, COUNT(o.id) as order_count\nFROM users u\nLEFT JOIN orders o ON u.id = o.user_id\nWHERE u.created_at > '2024-01-01'\nGROUP BY u.id, u.name\nHAVING COUNT(o.id) > 5",
+            "language": "sql",
+            "task": "explain"
+          }
+        }
+      }
+    }
+  ]
+}

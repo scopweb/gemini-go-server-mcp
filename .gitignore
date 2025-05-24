@@ -1,0 +1,9 @@
+# Variables de entorno
+.env
+.env.local
+.env.development
+.env.production
+
+# Archivos de configuración con secretos
+config.json
+secrets.json
