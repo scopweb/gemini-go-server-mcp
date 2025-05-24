@@ -23,7 +23,7 @@ Un servidor MCP (Model Context Protocol) optimizado que conecta Claude Desktop c
 ### 1. Clonar y configurar
 
 ```bash
-git clone <tu-repositorio>
+git clone https://github.com/scopweb/gemini-go-server-mcp.git
 cd gemini-claude-mcp-server
 
 # Configurar variables de entorno
@@ -356,7 +356,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 ## 📞 Soporte
 
-- **Issues**: [GitHub Issues](https://github.com/tu-usuario/gemini-claude-mcp-server/issues)
+- **Issues**: [GitHub Issues](https://github.com/scopweb/gemini-go-server-mcp/issues)
 - **Documentación**: Este README y comentarios en el código
 - **API de Gemini**: [Documentación oficial](https://ai.google.dev/docs)
 
